@@ -143,7 +143,7 @@ anchoPared = float(input('Ingrese el ancho en metros: '));
 alturaPared = float(input('Ingrese la altura en metros: '));
 area = anchoPared * alturaPared;
 
-print(f'Necesitas un total de {area / 2} Litros de pintura para pintar {area} m^2.');
+print(f'Necesitas un total de {area / 2:.2f} Litros de pintura para pintar {area:.2f} m^2.');
 
 # ---------
 # DESAFÍO 8
