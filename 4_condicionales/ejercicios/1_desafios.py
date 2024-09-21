@@ -9,11 +9,18 @@
 
 # -- SOLUCIÓN --
 
-import random;
+from random import randrange;
+from time import sleep;
 
-numeroAleatorio = random.randrange(0, 6);
+numeroAleatorio = randrange(0, 6);
 
-respuesta = int(input('El número está listo. Cuál pensas que es? '));
+print('=-' * 20);
+print('Tu número está listo. Intente adivinar...');
+print('=-' * 20);
+respuesta = int(input('Cuál pensas que es? '));
+
+print('PROCESANDO...\n');
+sleep(2);
 
 print('¡Ganaste!' if respuesta == numeroAleatorio else f'Perdiste, el numero era: {numeroAleatorio}');
 
@@ -31,14 +38,16 @@ print('¡Ganaste!' if respuesta == numeroAleatorio else f'Perdiste, el numero er
 
 print('\n');
 
-velocidad = random.randrange(30, 140);
+velocidad = randrange(30, 140);
 limite = 80
-multa = 7.00;
+multa = (velocidad - limite) * 7;
 
 print('¡ALTO! Control policial.');
+print('Leyendo velocidad del vehículo...');
+sleep(2);
 
 if (velocidad >= limite):
-    print(f'Ibas a {velocidad} km/h. Tenés una multa por exceso de velocidad su costo será de $ {(velocidad - limite) * multa:.2f}');
+    print(f'Ibas a {velocidad} km/h. Tenés una multa por exceso de velocidad su costo será de $ {multa:.2f}');
     print('ATRAPADO.');
 else:
     print(f'Ibas a {velocidad} km/h. Tu velocidad está bien, siga camino.');
@@ -75,10 +84,16 @@ distancia = float(input('Ingrese la distancia de tu viaje: '));
 precio = 0.50;
 
 if(distancia <= 200):
-    print(f'El costo es de {precio} por Km. Un total de {precio * distancia}');
+    print(f'El costo es de $ {precio} por Km. Un total de $ {precio * distancia}');
 else:
     precio = 0.45;
-    print(f'El precio del pasaje es de {precio} por Km. Un total de {precio * (distancia - 200)}')
+    print(f'El precio del pasaje es de $ {precio} por Km. Un total de $ {precio * (distancia - 200)}')
+
+
+""" OTRA ALTERNATIVA:
+precio = distancia * 0.50 if distancia <= 200 else distancia * 0.45;
+print(f'El precio de su pasaje será de: $ {precio:.2f}');
+"""
 
 
 # DESAFIO 6
@@ -90,9 +105,21 @@ else:
 
 print('\n');
 
-año = int(input('Ingrese un año: '));
+from datetime import date;
 
-print('Año bisiesto.' if año % 4 == 0 else 'No es bisiesto.');
+año = int(input('Ingrese un año para saber si es bisiesto. Ingrese 0 para analizar el año actual: '));
+
+if año == 0:
+    año = date.today().year;
+
+print(f'El año {año} es bisiesto.' if año % 4 == 0 and año % 100 != 0 or año % 400 == 0 else f'El año {año} no es bisiesto.');
+
+""" OTRA ALTERNATIVA:
+if (año % 4 == 0 and año % 100 != 0 or año % 400 == 0):
+    print('El año {año} es bisiesto);
+else:
+    print('El año {año} NO es bisiesto);
+"""
 
 
 # DESAFIO 7
@@ -109,23 +136,23 @@ nro1 = int(input('Ingrese un numero entero: '));
 nro2 = int(input('Ingrese otro numero entero: '));
 nro3 = int(input('Ingrese el tercer numero entero: '));
 
-# -- mayor
-if (nro1 > nro2 and nro1 > nro3):
-    print(f'{nro1} es el mayor');
-elif (nro2 > nro1 and nro2 > nro3):
-    print(f'{nro2} es el mayor');
-elif (nro3 > nro2 and nro3 > nro1):
-    print(f'{nro3} es el mayor');
-else:
-    print('Hay un igual.')
-
 # -- menor
-if(nro1 < nro2 and nro1 < nro3):
-    print(f'{nro1} es el menor');
-elif (nro2 < nro1 and nro2 < nro3):
-    print(f'{nro2} es el menor');
-elif (nro3 < nro2 and nro3 < nro1):
-    print(f'{nro3} es el menor');
+menor = nro1;
+
+if(nro2 < nro1 and nro2 < nro3):
+    menor = nro2;
+if(nro3 < nro1 and nro3 < nro2):
+    menor = nro3;
+
+# -- mayor
+mayor = nro1;
+
+if(nro2 > nro1 and nro2 > nro3):
+    mayor = nro2;
+if(nro3 > nro1 and nro3 > nro2):
+    mayor = nro3;
+
+print(f'El mayor es: {mayor}, el menor es {menor}');
 
 
 
@@ -153,6 +180,7 @@ else:
 print(f'El aumento será de {aumento*100}%, por ello, el nuevo sueldo será de: {sueldo + (sueldo * aumento):.2f}');
 
 
+
 # DESAFIO 9
 
 # Crea un programa que lea la longitud de
@@ -173,6 +201,6 @@ mayor a la longitud del tercer lado.
 """
 
 if (r1 + r2 > r3 and r2 + r3 > r1 and r1 + r3 > r2):
-    print('Se puede formar un triángulo.');
+    print('Se PUEDE formar un triángulo.');
 else:
-    print('No se puede formar un triángulo.');
+    print('NO se puede formar un triángulo.');
