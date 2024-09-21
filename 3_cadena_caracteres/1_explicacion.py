@@ -31,6 +31,7 @@ frase2.count('o', 0, 6); # cuenta cuántas veces aparece
 # la letra 'o' desde el índice 0 hasta el 5
 
 frase2.find('perr'); # cuántas veces encontró 'perr'
+frase2.lower().find('perr'); # Mando la frase a minúscula y busco
 frase2.find('banana'); # si no encuentra, devuelve -1
 
 'perrito' in frase2; # Devuelve true o false
@@ -55,7 +56,6 @@ frase3.lstrip(); # Remueve somante espacios de lado izquierdo
 ## DIVISIÓN -> divide una string
 frase2.split(); # Divide los strings por medio de los espacios
 # ['UN', 'PERRITO'];
-
 
 ## UNIÓN -> une strings
 '-'.join(frase2); # Une a la frase divida por guion
