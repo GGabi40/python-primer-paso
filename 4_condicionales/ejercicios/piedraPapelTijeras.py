@@ -18,7 +18,8 @@ juegosPosibles = ['piedra', 'papel', 'tijeras']
 reglas = {
     'piedra': 'tijeras',
     'papel': 'piedra',
-    'tijeras': 'papel'
+    'tijeras': 'papel',
+    'salir': '0'
 }
 computadoraElige = choice(juegosPosibles)
 salir = 0
@@ -37,23 +38,25 @@ for i in range(30):
 
 print(f'\n¿Estás Listo?\n')
 
-while(salir == 0):
-    jugadorElige = input('¿Qué elegis jugar? PIEDRA, PAPEL O TIJERAS?\n').lower().strip()
+jugadorElige = 'a'
+while(jugadorElige != '0'):
+    jugadorElige = input('¿Qué elegis jugar? PIEDRA, PAPEL O TIJERAS?\n\tPara salir: presione 0\n').lower().strip()
 
-    print('\nPROCESANDO...\n')
-    sleep(1)
-
-    if jugadorElige not in reglas:
-        print(f'{colores["FondoRojo"]}Elija una opción correcta.{colores["limpia"]}')
+    if(jugadorElige == '0'):
+        print(f'{colores["negrita"]}\nMuchas gracias por jugar.{colores["limpia"]}')
     else:
-        if(computadoraElige == jugadorElige):
-            print(f'{colores["azul"]}¡EMPATE!{colores["limpia"]} \nLa computadora eligió {colores["amarillo"]}{computadoraElige}{colores["limpia"]} y el jugador {colores["amarillo"]}{jugadorElige}{colores["limpia"]}\n')
-        elif(reglas[jugadorElige] == computadoraElige):
-            print(f'{colores["FondoVerde"]}¡GANASTE!{colores["limpia"]} \nLa computadora eligió {colores["amarillo"]}{computadoraElige}{colores["limpia"]} y el jugador {colores["amarillo"]}{jugadorElige}{colores["limpia"]}\n')
-        else:
-            print(f'{colores["FondoRojo"]}¡PERDISTE!{colores["limpia"]} \nLa computadora eligió {colores["amarillo"]}{computadoraElige}{colores["limpia"]} y el jugador {colores["amarillo"]}{jugadorElige}{colores["limpia"]}\n')
-    
-    sleep(1)
-    salir = int(input('\nDesea salir?\n\t0. Seguir jugando\n\t1. Salir del juego\n'))
+        print('\nPROCESANDO...\n')
+        sleep(1)
 
-print(f'{colores["negrita"]}\nMuchas gracias por jugar.{colores["limpia"]}')
+        if jugadorElige not in reglas:
+            print(f'{colores["FondoRojo"]}Elija una opción correcta.{colores["limpia"]}')
+        else:
+            if(computadoraElige == jugadorElige):
+                print(f'{colores["azul"]}¡EMPATE!{colores["limpia"]} \nLa computadora eligió {colores["amarillo"]}{computadoraElige}{colores["limpia"]} y el jugador {colores["amarillo"]}{jugadorElige}{colores["limpia"]}\n')
+            elif(reglas[jugadorElige] == computadoraElige):
+                print(f'{colores["FondoVerde"]}¡GANASTE!{colores["limpia"]} \nLa computadora eligió {colores["amarillo"]}{computadoraElige}{colores["limpia"]} y el jugador {colores["amarillo"]}{jugadorElige}{colores["limpia"]}\n')
+            else:
+                print(f'{colores["FondoRojo"]}¡PERDISTE!{colores["limpia"]} \nLa computadora eligió {colores["amarillo"]}{computadoraElige}{colores["limpia"]} y el jugador {colores["amarillo"]}{jugadorElige}{colores["limpia"]}\n')
+    
+    
+
