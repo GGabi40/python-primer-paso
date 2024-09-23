@@ -23,11 +23,13 @@ reglas = {
 computadoraElige = choice(juegosPosibles)
 salir = 0
 
+print('\n')
+
 for i in range(30):
     print(f'{colores["azul"]}-={colores["limpia"]}', end='', flush=True)
-    sleep(0.05);
+    sleep(0.05)
     
-print(f'\n{colores["Invertido"]}\nPiedra, Papel o Tijeras{colores["limpia"]}\n')
+print(f'\n{colores["Invertido"]}\n Piedra, Papel o Tijeras{colores["limpia"]} \n')
 
 for i in range(30):
     print(f'{colores["azul"]}-={colores["limpia"]}', end='', flush=True)
