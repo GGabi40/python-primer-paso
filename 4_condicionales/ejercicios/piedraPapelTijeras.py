@@ -11,7 +11,7 @@ colores = {
 }
 
 
-from random import choice
+import random
 from time import sleep
 
 juegosPosibles = ['piedra', 'papel', 'tijeras']
@@ -21,7 +21,7 @@ reglas = {
     'tijeras': 'papel',
     'salir': '0'
 }
-computadoraElige = choice(juegosPosibles)
+
 salir = 0
 
 print('\n')
@@ -40,6 +40,7 @@ print(f'\n¿Estás Listo?\n')
 
 jugadorElige = 'a'
 while(jugadorElige != '0'):
+    computadoraElige = random.choice(juegosPosibles)
     jugadorElige = input('¿Qué elegis jugar? PIEDRA, PAPEL O TIJERAS?\n\tPara salir: presione 0\n').lower().strip()
 
     if(jugadorElige == '0'):
