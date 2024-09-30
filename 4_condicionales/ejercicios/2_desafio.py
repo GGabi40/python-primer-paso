@@ -43,7 +43,7 @@ print('\n');
 
 for i in range(5):
     print('.', end='', flush=True);
-    sleep(0.5);
+    sleep(0.2);
 
 print('\n');
 
@@ -78,11 +78,11 @@ while(salir == 0):
     convertir = int(input("""En qué desea convertir? \n\t1. Binario\n\t2. Octal\n\t3. Hexadecimal\n"""))
 
     if(convertir == 1): 
-        print(f'\nEl valor Binario de {numero} es: {bin(numero)}')
+        print(f'\nEl valor Binario de {numero} es: {bin(numero)[2:]}')
     elif(convertir == 2):
-        print(f'\nEl valor Octal de {numero} es: {oct(numero)}')
+        print(f'\nEl valor Octal de {numero} es: {oct(numero)[2:]}')
     elif(convertir == 3):
-        print(f'\nEl valor Octal de {numero} es: {hex(numero)}')
+        print(f'\nEl valor Octal de {numero} es: {hex(numero)[2:]}')
     else:
         print(f'\n{colores["FondoRojo"]}Ingrese un valor válido.{colores["limpia"]}')
     
@@ -169,7 +169,7 @@ if(media >= 7):
     print(f'{colores["FondoVerde"]}APROBADO.{colores["limpia"]}')
 elif(media < 5):
     print(f'{colores["FondoRojo"]}REPROBADO.{colores["limpia"]}')
-elif(media >= 5 or media < 7):
+elif(7 > media >= 5):
     print(f'{colores["FondoAmarillo"]}HACER RECUPERATORIO.{colores["limpia"]}')
 else:
     print('Algo pasó...')
