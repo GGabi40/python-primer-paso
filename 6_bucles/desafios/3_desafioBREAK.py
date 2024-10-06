@@ -76,6 +76,11 @@ perdió = False
 while not perdió:
     computadora = randint(0, 10)
     jugador = str(input('Su número está listo. Elija: Par o Impar: ')).lower().strip()
+    
+    while jugador not in 'parimpar':
+        print('Elija una opcion valida.')
+        jugador = str(input('Par o Impar: ')).lower().strip()
+        
     print(f'\n¡Eligió \033[32m{jugador.upper()}\033[m!')
     print('\033[35m¡La computadora ya eligió un número!\033[m\n')
     
@@ -112,6 +117,34 @@ while not perdió:
 
 # SOLUCIÓN
 
+contador18 = contHombres = contMujeres = 0
+
+while True:
+    sexo = input('Ingrese el sexo: [M/F]\n').upper().strip()[0]
+    
+    while sexo not in 'MF':
+        print('Ingrese un valor valido: ')
+        sexo = input('[M / F]\n').upper().strip()[0]
+        
+    edad = int(input('Ingrese la edad: '))
+    while edad < 0:
+        print('Ingrese un valor valido: ')
+        edad = int(input('Ingrese la edad: '))
+        
+    if(sexo == 'M'):
+        contHombres += 1
+    if(edad >= 18):
+        contador18 += 1
+    if(sexo == 'F' and edad < 20):
+            contMujeres += 1
+    
+    salir = int(input('Presione 0 para salir o 1 para continuar.\n'))
+    if(salir == 0):
+        break
+
+print(f'Hay {contHombres} hombres.')
+print(f'Hay {contMujeres} mujeres menores de 20 años.')
+print(f'Hay {contador18} personas mayores a 18 años.')
 
 
 # EJERCICIO 5
@@ -125,6 +158,36 @@ while not perdió:
 #   C. Cuál es el producto más barato.
 
 # SOLUCIÓN
+
+print('=' *20)
+print('Tienda kiosquino')
+print('=' *20)
+
+total = totalCaro = 0
+
+while True:
+    nombre = input('Ingrese el nombre del producto: ').capitalize().strip()
+    precio = float(input('Ingrese el precio del producto: $ '))
+    
+    masBaratoPrecio = precio
+    masBaratoNombre = nombre
+    
+    total += precio
+    
+    if precio > 1000:
+        totalCaro += 1
+    if precio < masBaratoPrecio:
+        masBaratoPrecio = precio
+        masBaratoNombre = nombre
+    
+    salir = int(input('Presione 0 para salir o 1 para continuar.\n'))
+    if salir == 0:
+        break
+
+print(f'-{*10}FIN-{*10}')
+print(f'El total que se gastó en la compra fue de: $ {total}')
+print(f'Productos que cuestan más de $1.000: {totalCaro}')
+print(f'El producto más barato: {masBaratoNombre}, cuesta $ {masBaratoPrecio}')
 
 
 
@@ -141,5 +204,26 @@ while not perdió:
 
 # SOLUCIÓN
 
+print('-=' *20)
+print('Cajero Automatico'.center(40))
+print('-=' *20)
 
-# EJERCICIO 7
+print('\n')
+
+contadores = [0, 0, 0, 0]
+billetes = [50, 20, 10, 1]
+
+sacar = float(input('Cuanto desea sacar? '))
+total = sacar
+totalBilletes = 0
+
+for i in range(len(billetes)):
+    while total >= billetes[i]:
+        total -= billetes[i]
+        contadores[i] += 1
+
+print(f'Se sacarán:')
+for i in range(len(contadores)):
+    if contadores[i] > 0:
+        print(f'{contadores[i]} billetes de {billetes[i]}')
+
