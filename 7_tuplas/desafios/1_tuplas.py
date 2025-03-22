@@ -73,17 +73,15 @@ else:
 # SOLUCION
 
 print('')
-from random import randint
+from random import sample
+# sample: method returns a list with a specified 
+# number of randomly selected items from a sequence.
 
-numerosAleatorios = ()
+numerosAleatorios = (sample(range(20), 5))
 
-for i in range(5):
-    numeroNuevo = randint(0,10)
-    x = list(numerosAleatorios)
-    x.append(numeroNuevo)
-    numerosAleatorios = tuple(x)
-
-print(numerosAleatorios)
+print(f'Los numeros aleatorios fueron: {numerosAleatorios}')
+print(f'El mayor numero es: {max(numerosAleatorios)}')
+print(f'El menor numero es: {min(numerosAleatorios)}')
 
 
 print('\n')
@@ -98,33 +96,16 @@ print('\n')
 
 # SOLUCION
 
-tupla = ()
-i = 0
-while i < 4:
-    numero = int(input('Ingrese un numero: '))
-    x = list(tupla)
-    x.append(numero)
-    tupla = tuple(x)
-    i = i+1
+tupla = tuple(int(input('Ingrese un numero: '))for t in range(1, 5))
 
-contador = 0
 pares = 0
-encontrado = False
 for i in range(0,4):
-    if tupla[i] == 9:
-        contador = contador+1
-    
-    if not encontrado:
-        if tupla[i] == 3:
-            encontrado = True
-            indice = tupla.index(3)
-            print(f'El numero 3 apareció en el índice {indice}')
-    
     if tupla[i] % 2 == 0:
         pares = pares+1
 
 
-print(f'El numero 9 apareció {contador} veces')
+print(f'El numero 9 apareció {tupla.count(9)} veces')
+print(f'El numero 3 apareció en la posición {tupla.index(3)+1}.' if 3 in tupla else f'No había 3 en la tupla.')
 print(f'Hay {pares} numeros pares')
 
 
@@ -141,6 +122,23 @@ print('\n')
 
 # SOLUCION
 
+print(f'{'\033[32m'}~~{'\033[m'}'*20)
+print(f'{"Lista de precios":^40}')
+print(f'{'\033[32m'}~~{'\033[m'}'*20)
+
+productos = (
+            'Lapis', 1.80,
+            'lapicera', 2.90,
+            'regla', 9.00,
+            'papel A4', 1.20,
+            'papel oficio', 2.10
+            )
+
+for i in range(0, len(productos)):
+    if i % 2 == 0:
+        print(f'{productos[i].title():.<30}', end='')
+    else:
+        print(f'U$D {productos[i]:.2f}')
 
 
 # EJERCICIO 6
@@ -151,3 +149,17 @@ print('\n')
 
 # SOLUCION
 
+tupla = (
+    'papa',
+    'pierna',
+    'pereba',
+    'naranja',
+    'cerebelo'
+    )
+
+for i in tupla:
+    print(f'Las vocales de la palabra {i.upper()} son: ', end='')
+    for letra in i:
+        if letra in 'aeiou':
+            print(f' {letra}', end='')
+    print('')

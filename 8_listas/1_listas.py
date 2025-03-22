@@ -1,4 +1,3 @@
-
 # --- LISTAS:
 # Son como las tuplas, pero se puede modificar. Utiliza [ ], a diferencia de la tupla.
 
