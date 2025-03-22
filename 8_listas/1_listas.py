@@ -41,8 +41,8 @@ combo_dos.pop(2) # elimina 'flan'
 combo_dos.remove('gaseosa') # elimina gaseosa
 
 # Para evitar errores:
-if 'flan' in combo:
-	combo.remove('flan')
+if 'flan' in combo_dos:
+	combo_dos.remove('flan')
 
 
 ## Crear una lista numérica:

@@ -79,20 +79,56 @@ numerosAleatorios = ()
 
 for i in range(5):
     numeroNuevo = randint(0,10)
-    numerosAleatorios.append(numeroNuevo)
-    print(numerosAleatorios)
+    x = list(numerosAleatorios)
+    x.append(numeroNuevo)
+    numerosAleatorios = tuple(x)
+
+print(numerosAleatorios)
 
 
+print('\n')
 
 # EJERCICIO 4
 
-# Crea un programa que lea 4 valores por teclado 
+# Crea un programa que lea 4 valores por teclado OK
 # y los guarde en una tupla. Al final, mostrar:
-#   A. Cuantas veces aparecio el valor 9
-#   B. En que posicion fue tipeado el primer valor 3
+#   A. Cuantas veces aparecio el valor 9 OK
+#   B. En que posicion fue tipeado el primer valor 3 OK
 #   C. Cuales fueron los numeros pares
 
 # SOLUCION
+
+tupla = ()
+i = 0
+while i < 4:
+    numero = int(input('Ingrese un numero: '))
+    x = list(tupla)
+    x.append(numero)
+    tupla = tuple(x)
+    i = i+1
+
+contador = 0
+pares = 0
+encontrado = False
+for i in range(0,4):
+    if tupla[i] == 9:
+        contador = contador+1
+    
+    if not encontrado:
+        if tupla[i] == 3:
+            encontrado = True
+            indice = tupla.index(3)
+            print(f'El numero 3 apareció en el índice {indice}')
+    
+    if tupla[i] % 2 == 0:
+        pares = pares+1
+
+
+print(f'El numero 9 apareció {contador} veces')
+print(f'Hay {pares} numeros pares')
+
+
+print('\n')
 
 
 # EJERCICIO 5
@@ -104,6 +140,7 @@ for i in range(5):
 # organizando los datos en forma tabular.
 
 # SOLUCION
+
 
 
 # EJERCICIO 6
